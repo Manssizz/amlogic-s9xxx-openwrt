@@ -7601,3 +7601,105 @@ CONFIG_PACKAGE_whereis=y
 # CONFIG_PACKAGE_fontconfig is not set
 # end of Font-Utils
 # end of Xorg
+<<<<<<< HEAD
+=======
+
+
+#
+# Add by Manssizz
+#
+
+### Bloatware
+# CONFIG_PACKAGE_mmdvm-luci is not set
+# CONFIG_PACKAGE_mmdvm-host is not set
+# CONFIG_PACKAGE_libmmdvm is not set
+# CONFIG_PACKAGE_shadowsocks-rust-sslocal is not set
+# CONFIG_PACKAGE_shadowsocks-rust-ssserver is not set
+# CONFIG_PACKAGE_shadowsocksr-libev-ssr-check is not set
+# CONFIG_PACKAGE_luci-app-ssr-plus is not set
+
+### Dependency Packages ###
+CONFIG_DEFAULT_telnet-bsd=y
+CONFIG_DEFAULT_kmod-ikconfig=y
+CONFIG_PACKAGE_procps-ng=y
+CONFIG_PACKAGE_procps-ng-watch=y
+# CONFIG_PACKAGE_luci-app-fan is not set
+CONFIG_PACKAGE_luci-app-bridge=y
+# CONFIG_PACKAGE_luci-app-onliner is not set
+# CONFIG_PACKAGE_openwrt-cloudflared is not set
+
+### Modem ###
+CONFIG_PACKAGE_luci-app-modeminfo=y
+CONFIG_PACKAGE_luci-app-3ginfo-lite=y
+CONFIG_PACKAGE_luci-app-modemband=y
+CONFIG_PACKAGE_luci-app-atinout=y
+# CONFIG_PACKAGE_luci-app-gpoint is not set
+CONFIG_PACKAGE_luci-app-internet-detector=y
+# CONFIG_PACKAGE_luci-app-pcimodem is not set
+# CONFIG_PACKAGE_luci-app-mmconfig is not set
+# CONFIG_PACKAGE_luci-app-cellled is not set
+CONFIG_PACKAGE_luci-app-sms-tool=y
+CONFIG_PACKAGE_usbreset=y
+CONFIG_PACKAGE_adb=y
+CONFIG_PACKAGE_xmm-modem=y
+CONFIG_PACKAGE_umbim=y
+CONFIG_PACKAGE_qmi-advanced=y
+CONFIG_PACKAGE_luci-proto-mbim=y
+CONFIG_PACKAGE_luci-proto-umbim=y
+CONFIG_PACKAGE_luci-proto-xmm=y
+# CONFIG_PACKAGE_rmbim is not set
+# CONFIG_PACKAGE_imei_generator is not set
+CONFIG_PACKAGE_rqmi=y
+CONFIG_PACKAGE_uqmi=y
+# CONFIG_PACKAGE_modeminfo-qmi is not set
+# CONFIG_PACKAGE_modeminfo-serial-dell is not set
+# CONFIG_PACKAGE_modeminfo-serial-sierra is not set
+# CONFIG_PACKAGE_modeminfo-serial-huawei is not set
+# CONFIG_PACKAGE_modeminfo-serial-xmm is not set
+# CONFIG_PACKAGE_modeminfo-telegram is not set
+# CONFIG_PACKAGE_modeminfo-serial-yuge is not set
+# CONFIG_PACKAGE_modeminfo-serial-gosun is not set
+# CONFIG_PACKAGE_modeminfo-serial-styx is not set
+# CONFIG_PACKAGE_modeminfo-serial-tw is not set
+# CONFIG_PACKAGE_modeminfo-serial-meig is not set
+# CONFIG_PACKAGE_modeminfo-serial-fibocom is not set
+# CONFIG_PACKAGE_modeminfo-serial-telit is not set
+# CONFIG_PACKAGE_modeminfo-serial-quectel is not set
+# CONFIG_PACKAGE_modeminfo-serial-mikrotik is not set
+# CONFIG_PACKAGE_modeminfo-serial-simcom is not set
+
+
+### Theme
+# CONFIG_PACKAGE_luci-theme-alpha is not set
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-app-argon-config=y
+
+### Application GUI
+CONFIG_PACKAGE_luci-app-accesscontrol=y
+CONFIG_PACKAGE_luci-app-netdata=y
+CONFIG_PACKAGE_luci-app-openspeedtest=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
+# CONFIG_PACKAGE_luci-app-advanced is not set
+CONFIG_PACKAGE_luci-app-filebrowser=y
+# CONFIG_PACKAGE_luci-app-macvlan is not set
+CONFIG_PACKAGE_luci-app-diskman=y
+# CONFIG_PACKAGE_luci-app-rclone is not set
+CONFIG_PACKAGE_luci-app-hd-idle=y
+# CONFIG_PACKAGE_luci-app-nfs is not set
+CONFIG_PACKAGE_luci-app-nft-qos=y
+# CONFIG_PACKAGE_luci-app-statistics is not set
+# CONFIG_PACKAGE_luci-app-log is not set
+# CONFIG_PACKAGE_luci-app-tcpdump is not set
+# CONFIG_PACKAGE_luci-app-cshark is not set
+# CONFIG_PACKAGE_luci-app-dnsforwarder is not set
+# CONFIG_PACKAGE_luci-app-ddns is not set
+# CONFIG_PACKAGE_luci-app-wol is not set
+# CONFIG_PACKAGE_luci-app-uugamebooster is not set
+CONFIG_PACKAGE_luci-app-p910nd=y
+
+##### Tunnel #####
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_dnsmasq-full=y
+CONFIG_PACKAGE_luci-app-passwall=y
+# CONFIG_PACKAGE_luci-app-bypass is not set
+>>>>>>> b496db5 (test)
