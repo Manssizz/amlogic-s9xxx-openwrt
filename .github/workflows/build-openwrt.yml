@@ -23,11 +23,11 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "s905x_s905x-b860h_s905x-t95_s912-s912"
+        default: "s905x_s905x-b860h_s905x-t95_s912"
         type: choice
         options:
           - all
-          - s905x_s905x-b860h_s905x-t95_s912-s912
+          - s905x_s905x-b860h_s905x-t95_s912
           - s905x_s905x-b860h_s905x-t95_s912-t95z-plus_s905x3-x96max_s905x3-hk1_s905x-tx9_s905w-x96-mini_king3399
           - s905x-t95_s912-t95z-plus_s905l3-unt400g1_s905mb_vplus_xiaobao
           - s905x3-x88-pro-x3_s912-m8s-pro_s922x_s922x-ct2000_s922x-reva
