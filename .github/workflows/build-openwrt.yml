@@ -18,6 +18,8 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
+          - openclash-main
+          - rooter-18
       openwrt_board:
         description: "Select device board"
         required: false
@@ -25,10 +27,11 @@ on:
         type: choice
         options:
           - all
-          - s905w_s905x_s905mb_s905l3b_s905x2_s905x3_s912_s922x_s922x-ct2000_s922x-reva
-          - s905x3-x88-pro-x3_s912-m8s-pro_s905x-t95_s912-t95z-plus_s905l3-unt400g1_s905lb-r3300l
-          - smart-am40_station-m1_sw799_tn3399_zysj_tvi3315a_xiaobao_zcube1-max
-          - vplus_tanix-tx6_tqc-a01
+          - s905x_s905x-b860h_s905x-t95_s912
+          - s905x_s905x-b860h_s905x-t95_s912-t95z-plus_s905x3-x96max_s905x3-hk1_s905x-tx9_s905w-x96-mini_king3399
+          - s905x-t95_s912-t95z-plus_s905l3-unt400g1_s905mb_vplus_xiaobao
+          - s905x3-x88-pro-x3_s912-m8s-pro_s922x_s922x-ct2000_s922x-reva
+          - smart-am40_station-m1_sw799_tn3399_zysj_tanix-tx6_tqc-a01_tvi3315a
           - a311d
           - beikeyun
           - chainedbox
@@ -51,12 +54,12 @@ on:
           - king3399
           - kylin3399
           - leez
+          - mpc1903
           - nanopi-r5c
           - nanopi-r5s
           - panther-x2
           - r66s
           - r68s
-          - renegade-rk3328
           - rock5b
           - s905
           - s905-beelink-mini
@@ -165,10 +168,11 @@ on:
       kernel_repo:
         description: "Set the kernel repository"
         required: false
-        default: "ophub/kernel"
+        default: "Manssizz/ophub-kernel"
         type: choice
         options:
           - ophub/kernel
+          - Manssizz/ophub-kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -182,19 +186,20 @@ on:
       openwrt_storage:
         description: "Select image storage type."
         required: false
-        default: "save"
+        default: "temp"
         type: choice
         options:
           - save
+          - openclash
           - temp
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "ophub"
+        default: "cendrawasih"
         type: choice
         options:
-          - ophub
           - angel
+          - cendrawasih
           - yourname
 
 env:
@@ -202,7 +207,7 @@ env:
   CONFIG_FILE: config/${{ inputs.source_branch }}/config
   DIY_P1_SH: config/${{ inputs.source_branch }}/diy-part1.sh
   DIY_P2_SH: config/${{ inputs.source_branch }}/diy-part2.sh
-  TZ: America/New_York
+  TZ: Asia/Jakarta
 
 jobs:
   build:
@@ -222,7 +227,7 @@ jobs:
           [[ -n "${AGENT_TOOLSDIRECTORY}" ]] && sudo rm -rf "${AGENT_TOOLSDIRECTORY}"
           sudo rm -rf /usr/share/dotnet /etc/apt/sources.list.d /usr/local/lib/android 2>/dev/null
           sudo -E apt-get -y update
-          sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
+          sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* man-db apache2 ufw exim4 firewalld snapd* apparmor bind9 || true
           sudo -E apt-get -y install $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt)
           sudo -E systemctl daemon-reload
           #sudo -E apt-get -y full-upgrade
@@ -243,6 +248,10 @@ jobs:
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
               TAGS_NAME="official"
+          elif [[ "${{ inputs.source_branch }}" == *"openclash"* ]]; then
+              REPO_URL="https://github.com/openwrt/openwrt"
+              REPO_BRANCH="main"
+              TAGS_NAME="official"
           elif [[ "${{ inputs.source_branch }}" == *"lede"* ]]; then
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
@@ -251,6 +260,10 @@ jobs:
               REPO_URL="https://github.com/immortalwrt/immortalwrt"
               REPO_BRANCH="master"
               TAGS_NAME="immortalwrt"
+          elif [[ "${{ inputs.source_branch }}" == *"rooter"* ]]; then
+              REPO_URL="https://github.com/ofmodemsandmen/ROOterSource2305"
+              REPO_BRANCH="main"
+              TAGS_NAME="goldenorb"
           else
               echo "Unknown source code repository."
               exit 1
@@ -336,7 +349,7 @@ jobs:
 
       - name: Packaging OpenWrt
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: manssizz/amlogic-s9xxx-openwrt@cendrawasih
         with:
           openwrt_path: openwrt/output/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
@@ -345,6 +358,7 @@ jobs:
           kernel_repo: ${{ inputs.kernel_repo }}
           kernel_usage: ${{ inputs.kernel_usage }}
           builder_name: ${{ inputs.builder_name }}
+          gh_token: ${{ secrets.GH_TOKEN }}
 
       - name: Upload the packaged OpenWrt
         uses: ncipollo/release-action@main
