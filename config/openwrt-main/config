@@ -7601,8 +7601,6 @@ CONFIG_PACKAGE_whereis=y
 # CONFIG_PACKAGE_fontconfig is not set
 # end of Font-Utils
 # end of Xorg
-<<<<<<< HEAD
-=======
 
 
 #
@@ -7651,23 +7649,6 @@ CONFIG_PACKAGE_luci-proto-xmm=y
 # CONFIG_PACKAGE_imei_generator is not set
 CONFIG_PACKAGE_rqmi=y
 CONFIG_PACKAGE_uqmi=y
-# CONFIG_PACKAGE_modeminfo-qmi is not set
-# CONFIG_PACKAGE_modeminfo-serial-dell is not set
-# CONFIG_PACKAGE_modeminfo-serial-sierra is not set
-# CONFIG_PACKAGE_modeminfo-serial-huawei is not set
-# CONFIG_PACKAGE_modeminfo-serial-xmm is not set
-# CONFIG_PACKAGE_modeminfo-telegram is not set
-# CONFIG_PACKAGE_modeminfo-serial-yuge is not set
-# CONFIG_PACKAGE_modeminfo-serial-gosun is not set
-# CONFIG_PACKAGE_modeminfo-serial-styx is not set
-# CONFIG_PACKAGE_modeminfo-serial-tw is not set
-# CONFIG_PACKAGE_modeminfo-serial-meig is not set
-# CONFIG_PACKAGE_modeminfo-serial-fibocom is not set
-# CONFIG_PACKAGE_modeminfo-serial-telit is not set
-# CONFIG_PACKAGE_modeminfo-serial-quectel is not set
-# CONFIG_PACKAGE_modeminfo-serial-mikrotik is not set
-# CONFIG_PACKAGE_modeminfo-serial-simcom is not set
-
 
 ### Theme
 # CONFIG_PACKAGE_luci-theme-alpha is not set
@@ -7702,4 +7683,3 @@ CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_dnsmasq-full=y
 CONFIG_PACKAGE_luci-app-passwall=y
 # CONFIG_PACKAGE_luci-app-bypass is not set
->>>>>>> b496db5 (test)
