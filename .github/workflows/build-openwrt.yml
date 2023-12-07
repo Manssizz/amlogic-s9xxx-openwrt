@@ -191,7 +191,7 @@ on:
         type: choice
         options:
           - save
-          - openclash
+          - beta
           - temp
       builder_name:
         description: "Set OpenWrt builder signature."
@@ -251,7 +251,7 @@ jobs:
               TAGS_NAME="official"
           elif [[ "${{ inputs.source_branch }}" == *"openclash"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
-              REPO_BRANCH="main"
+              REPO_BRANCH="openclash"
               TAGS_NAME="official"
           elif [[ "${{ inputs.source_branch }}" == *"lede"* ]]; then
               REPO_URL="https://github.com/coolsnowwolf/lede"
