@@ -252,7 +252,7 @@ jobs:
           elif [[ "${{ inputs.source_branch }}" == *"openclash"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
-              TAGS_NAME="openclash"
+              TAGS_NAME="official"
           elif [[ "${{ inputs.source_branch }}" == *"lede"* ]]; then
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
