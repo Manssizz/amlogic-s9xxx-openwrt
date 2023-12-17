@@ -19,7 +19,7 @@ on:
           - lede-master
           - immortalwrt-master
           - openclash-main
-          - rooter-18
+          - rooter-main
       openwrt_board:
         description: "Select device board"
         required: false
