@@ -36,6 +36,7 @@ svn co https://github.com/openwrt/packages/trunk/libs/libpam package/libpam
 svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/feeds/luci package/luci
 svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter  package/rooter
 svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter-builds/0protocols/luci-proto-3x  package/luci-proto-3x
+svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/network/utils/uqmi  package/uqmi
 svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0drivers/rqmi  package/rqmi
 svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/ext-rooter-basic  package/ext-rooter-basic
 svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
