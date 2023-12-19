@@ -33,6 +33,7 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 ### libpam
 svn co https://github.com/openwrt/packages/trunk/libs/libpam package/libpam
 ### ROOter
+git clone https://github.com/Manssizz/rmbim package/rmbim
 git clone https://github.com/Manssizz/ext-rooter-basic.git  package/ext-rooter-basic
 
 svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/feeds/luci package/luci
@@ -49,7 +50,6 @@ svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0
 svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0themes/ext-theme package/ext-theme
 
 svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0themes/theme-data package/theme-data
-svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0drivers/rmbim package/rmbim
 
 ### TurboACC
 # git clone https://github.com/fullcone-nat-nftables/nft-fullcone.git package/nft-fullcone
