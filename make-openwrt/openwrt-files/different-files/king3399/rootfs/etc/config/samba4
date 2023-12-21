@@ -1,0 +1,15 @@
+
+config samba
+	option workgroup 'Cendrawasih'
+	option charset 'UTF-8'
+	option description 'Samba On Cendrawasih'
+	option interface 'lan'
+
+config sambashare
+	option name 'rootfs'
+	option path '/'
+	option read_only 'no'
+	option guest_ok 'no'
+	option create_mask '0666'
+	option dir_mask '0777'
+
