@@ -33,23 +33,24 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 ### libpam
 svn co https://github.com/openwrt/packages/trunk/libs/libpam package/libpam
 ### ROOter
-git clone https://github.com/Manssizz/rmbim package/rmbim
 git clone https://github.com/Manssizz/ext-rooter-basic.git  package/ext-rooter-basic
 
-# svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/feeds/luci package/luci
-svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter  package/rooter
-svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter-builds/0protocols/luci-proto-3x  package/luci-proto-3x
-svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/network/utils/uqmi  package/uqmi
-svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0drivers/rqmi  package/rqmi
-svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
-svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
-svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0optionalapps/ext-autoapn package/ext-autoapn
-# svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0themes/ext-login package/ext-login
-# svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0themes/luci-theme-argon package/luci-theme-argon
-# svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0themes/luci-theme-argondark package/luci-theme-argondark
-# svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0themes/ext-theme package/ext-theme
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/feeds/luci package/luci
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter  package/rooter
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-builds/0protocols/luci-proto-3x  package/luci-proto-3x
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/network/utils/uqmi  package/uqmi
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rmbim  package/rmbim
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rqmi  package/rqmi
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0optionalapps/ext-autoapn package/ext-autoapn
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-extra/ext-simplegps package/ext-simplegps
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/ext-login package/ext-login
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/luci-theme-argon package/luci-theme-argon
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/luci-theme-argondark package/luci-theme-argondark
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/ext-theme package/ext-theme
 # 
-# svn co https://github.com/ofmodemsandmen/ROOterSource2305/trunk/package/rooter/0themes/theme-data package/theme-data
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/theme-data package/theme-data
 
 ### TurboACC
 # git clone https://github.com/fullcone-nat-nftables/nft-fullcone.git package/nft-fullcone
