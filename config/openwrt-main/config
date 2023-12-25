@@ -7713,6 +7713,8 @@ CONFIG_PACKAGE_luci-app-nft-qos=y
 # CONFIG_PACKAGE_luci-app-wol is not set
 # CONFIG_PACKAGE_luci-app-uugamebooster is not set
 CONFIG_PACKAGE_luci-app-p910nd=y
+# CONFIG_PACKAGE_luci-app-turboacc is not set
+
 
 ##### Tunnel #####
 CONFIG_PACKAGE_luci-app-openclash=y

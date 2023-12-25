@@ -35,7 +35,7 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 # git clone https://github.com/fullcone-nat-nftables/nft-fullcone.git package/nft-fullcone
 # svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/luci-app-turboacc
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk/luci-app-3ginfo-lite package/luci-app-3ginfo-lite
-svn co https://github.com/imy7/luci-app-turboacc/trunk/Lienol package/luci-app-turboacc
+svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/luci-app-turboacc
 
 # coolsnowwolf default software package replaced with Lienol related software package
 # rm -rf feeds/packages/utils/{containerd,libnetwork,runc,tini}
