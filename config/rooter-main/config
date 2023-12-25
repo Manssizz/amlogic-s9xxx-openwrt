@@ -7647,7 +7647,7 @@ CONFIG_PACKAGE_luci-proto-umbim=u
 CONFIG_PACKAGE_luci-proto-xmm=y
 CONFIG_PACKAGE_umbim=y
 # CONFIG_PACKAGE_rmbim is not set
-CONFIG_PACKAGE_uqmi=y
+# CONFIG_PACKAGE_uqmi is not set
 CONFIG_PACKAGE_rqmi=y
 CONFIG_DEFAULT_telnet-bsd=y
 CONFIG_DEFAULT_kmod-ikconfig=y
