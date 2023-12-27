@@ -37,10 +37,10 @@ git clone https://github.com/Manssizz/ext-rooter-basic.git  package/ext-rooter-b
 
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/feeds/luci package/luci
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter  package/rooter
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-builds/0protocols/luci-proto-3x  package/luci-proto-3x
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/network/utils/uqmi  package/uqmi
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rmbim  package/rmbim
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rqmi  package/rqmi
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-builds/0protocols/luci-proto-3x  package/luci-proto-3x
+svn co https://github.com/mrhaav/openwrt-packages/trunk/uqmi  package/uqmi
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rmbim  package/rmbim
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rqmi  package/rqmi
 svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
 svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
 svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0optionalapps/ext-autoapn package/ext-autoapn
