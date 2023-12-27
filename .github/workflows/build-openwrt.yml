@@ -18,6 +18,7 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
+          - cendrawasih-main
           - openclash-main
           - rooter-main
       openwrt_board:
@@ -261,6 +262,10 @@ jobs:
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
               TAGS_NAME="lede"
+          if [[ "${{ inputs.source_branch }}" == *"cendrawasih"* ]]; then
+              REPO_URL="https://github.com/openwrt/openwrt"
+              REPO_BRANCH="main"
+              TAGS_NAME="official"
           elif [[ "${{ inputs.source_branch }}" == *"immortalwrt"* ]]; then
               REPO_URL="https://github.com/immortalwrt/immortalwrt"
               REPO_BRANCH="master"
