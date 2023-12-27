@@ -27,6 +27,8 @@ rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/luci-app-turboacc
+svn co https://github.com/mrhaav/openwrt-packages/trunk/uqmi package/uqmi
+
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
