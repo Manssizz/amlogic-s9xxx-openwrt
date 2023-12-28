@@ -17,9 +17,12 @@ on:
         default: "official"
         type: choice
         options:
-          - official
-          - lede
-          - immortalwrt
+          - openwrt-main
+          - lede-master
+          - immortalwrt-master
+          - cendrawasih-main
+          - openclash-main
+          - rooter-main
       docker_img:
         description: "Set the docker image"
         required: false
