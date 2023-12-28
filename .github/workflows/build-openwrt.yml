@@ -262,7 +262,7 @@ jobs:
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
               TAGS_NAME="lede"
-          if [[ "${{ inputs.source_branch }}" == *"cendrawasih"* ]]; then
+          elif [[ "${{ inputs.source_branch }}" == *"cendrawasih"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
               TAGS_NAME="official"
