@@ -357,7 +357,7 @@ jobs:
           replacesArtifacts: true
           token: ${{ secrets.GH_TOKEN }}
           body: |
-          This is Rooter/Goldenorb base firmware.
+            This is Rooter/Goldenorb base firmware.
             ### Openwrt Goldenorb Image information
             - Default IP: 192.168.1.1
             - Default username: root
