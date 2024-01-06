@@ -188,8 +188,8 @@ on:
         default: "openclash"
         type: choice
         options:
-          - openclash
-          - rooter
+          - beta
+          - stable
       builder_name:
         description: "Set builder signature."
         required: false
@@ -241,19 +241,19 @@ jobs:
         working-directory: /workdir
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
-          # Set up compilation source code
-          if [[ "${{ inputs.source_branch }}" == *"openclash"* ]]; then
-              REPO_URL="https://github.com/openwrt/openwrt"
-              REPO_BRANCH="main"
-              TAGS_NAME="openclash" 
-          elif [[ "${{ inputs.source_branch }}" == *"rooter"* ]]; then
-              REPO_URL="https://github.com/openwrt/openwrt"
-              REPO_BRANCH="main"
-              TAGS_NAME="main"
-          else
-              echo "Unknown source code repository."
-              exit 1
-          fi
+         # Set up compilation source code
+         if [[ "${{ inputs.source_branch }}" == *"openclash"* ]]; then
+             REPO_URL="https://github.com/openwrt/openwrt"
+             REPO_BRANCH="main"
+             TAGS_NAME="openclash" 
+         elif [[ "${{ inputs.source_branch }}" == *"rooter"* ]]; then
+             REPO_URL="https://github.com/openwrt/openwrt"
+             REPO_BRANCH="main"
+             TAGS_NAME="goldenorb"
+         else
+             echo "Unknown source code repository."
+             exit 1
+         fi
 
           # Clone source code
           git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
