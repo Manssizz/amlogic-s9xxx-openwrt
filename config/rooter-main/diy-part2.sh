@@ -36,7 +36,7 @@ svn co https://github.com/openwrt/packages/trunk/libs/libpam package/libpam
 git clone https://github.com/Manssizz/ext-rooter-basic.git  package/ext-rooter-basic
 
 ### luci-app-modem
-svn co https://github.com/Siriling/5G-Modem-Support/trunk/luci-app-modem package/luci-app-modem
+svn co https://github.com/Manssizz/5G-Modem-Support/trunk/luci-app-modem package/luci-app-modem
 
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/feeds/luci package/luci
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter  package/rooter
