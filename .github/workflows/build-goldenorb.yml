@@ -185,7 +185,7 @@ on:
       openwrt_storage:
         description: "Select image storage type."
         required: false
-        default: "rooter"
+        default: "openclash"
         type: choice
         options:
           - openclash
