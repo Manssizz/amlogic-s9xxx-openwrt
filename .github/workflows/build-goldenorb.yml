@@ -191,7 +191,7 @@ on:
           - openclash
           - rooter
       builder_name:
-        description: "Set OpenWrt builder signature."
+        description: "Set builder signature."
         required: false
         default: "cendrawasih"
         type: choice
@@ -249,7 +249,7 @@ jobs:
           elif [[ "${{ inputs.source_branch }}" == *"rooter"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
-              TAGS_NAME="goldenorb"
+              TAGS_NAME="main"
           else
               echo "Unknown source code repository."
               exit 1
@@ -260,7 +260,7 @@ jobs:
           ln -sf /workdir/openwrt ${GITHUB_WORKSPACE}/openwrt
 
           # Set output information
-          echo "build_tag=Openclash_${TAGS_NAME}_${{ inputs.openwrt_storage }}_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
+          echo "build_tag=${TAGS_NAME}_${{ inputs.openwrt_storage }}_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
           echo -e "REPO_URL: [ ${REPO_URL} ]\nREPO_BRANCH: [ ${REPO_BRANCH} ]\nTAGS_NAME: [ ${TAGS_NAME} ]"
           df -hT ${PWD}
           echo "status=success" >> ${GITHUB_OUTPUT}
