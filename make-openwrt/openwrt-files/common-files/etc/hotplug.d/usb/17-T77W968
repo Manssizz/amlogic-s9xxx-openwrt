@@ -1,5 +1,10 @@
 T77W968_PRODUCT="413c/81d7/318"
 
+if [ ! -d /tmp/qmi/wwan0 ]; then
+  mkdir -p /tmp/qmi/wwan0;
+fi
+
+
 if [ "${PRODUCT}" = "${T77W968_PRODUCT}" ]; then
     if [ "${ACTION}" = "add" ]; then
         device_id="$(echo ${DEVICENAME} | awk -F':' '{print $1}')"
