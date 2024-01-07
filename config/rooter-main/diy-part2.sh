@@ -32,17 +32,12 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 
 ### libpam
 svn co https://github.com/openwrt/packages/trunk/libs/libpam package/libpam
-### ROOter
-git clone https://github.com/Manssizz/ext-rooter-basic.git  package/ext-rooter-basic
-# svn co https://github.com/openwrt/openwrt/trunk/package/network/utils/umbim package/umbim
-### luci-app-modem
-svn co https://github.com/Manssizz/5G-Modem-Support/trunk/luci-app-modem package/luci-app-modem
-
+### Rooter depend
+git clone https://github.com/Manssizz/rmbim.git  package/rmbim
+svn co https://github.com/mrhaav/openwrt-packages/trunk/uqmi  package/uqmi
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/feeds/luci package/luci
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter  package/rooter
 svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-builds/0protocols/luci-proto-3x  package/luci-proto-3x
-svn co https://github.com/mrhaav/openwrt-packages/trunk/uqmi  package/uqmi
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rmbim  package/rmbim
 svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rqmi  package/rqmi
 svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
 svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
@@ -54,6 +49,14 @@ svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-extra
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/ext-theme package/ext-theme
 # 
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/theme-data package/theme-data
+
+# svn co https://github.com/openwrt/openwrt/trunk/package/network/utils/umbim package/umbim
+### luci-app-modem
+svn co https://github.com/Manssizz/5G-Modem-Support/trunk/luci-app-modem package/luci-app-modem
+
+
+### ROOter
+git clone https://github.com/Manssizz/ext-rooter-basic.git  package/ext-rooter-basic
 
 ### TurboACC
 # git clone https://github.com/fullcone-nat-nftables/nft-fullcone.git package/nft-fullcone
