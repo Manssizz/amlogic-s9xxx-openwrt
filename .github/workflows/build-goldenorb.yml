@@ -16,6 +16,7 @@ on:
         type: choice
         options:
           - rooter-main
+          - rooter-23.05
       openwrt_board:
         description: "Select device board"
         required: false
@@ -241,26 +242,26 @@ jobs:
         working-directory: /workdir
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
-         # Set up compilation source code
-         if [[ "${{ inputs.source_branch }}" == *"openclash"* ]]; then
-             REPO_URL="https://github.com/openwrt/openwrt"
-             REPO_BRANCH="main"
-             TAGS_NAME="openclash" 
-         elif [[ "${{ inputs.source_branch }}" == *"rooter"* ]]; then
-             REPO_URL="https://github.com/openwrt/openwrt"
-             REPO_BRANCH="main"
-             TAGS_NAME="goldenorb"
-         else
-             echo "Unknown source code repository."
-             exit 1
-         fi
+          # Set up compilation source code
+          if [[ "${{ inputs.source_branch }}" == *"main"* ]]; then
+              REPO_URL="https://github.com/openwrt/openwrt"
+              REPO_BRANCH="main"
+              TAGS_NAME="beta"
+          elif [[ "${{ inputs.source_branch }}" == *"23.05"* ]]; then
+              REPO_URL="https://github.com/openwrt/openwrt"
+              REPO_BRANCH="openwrt-23.05"
+              TAGS_NAME="openclash-23.05
+          else
+              echo "Unknown source code repository."
+              exit 1
+          fi
 
           # Clone source code
           git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
           ln -sf /workdir/openwrt ${GITHUB_WORKSPACE}/openwrt
 
           # Set output information
-          echo "build_tag=${TAGS_NAME}_${{ inputs.openwrt_storage }}_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
+          echo "build_tag=Openwrt_${TAGS_NAME}_${{ inputs.openwrt_storage }}_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
           echo -e "REPO_URL: [ ${REPO_URL} ]\nREPO_BRANCH: [ ${REPO_BRANCH} ]\nTAGS_NAME: [ ${TAGS_NAME} ]"
           df -hT ${PWD}
           echo "status=success" >> ${GITHUB_OUTPUT}
