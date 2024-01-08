@@ -244,12 +244,12 @@ jobs:
           # Set up compilation source code
           if [[ "${{ inputs.source_branch }}" == *"openclash"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
-              REPO_BRANCH="main"
-              TAGS_NAME="openclash" 
+              REPO_BRANCH="openwrt-23.05"
+              TAGS_NAME="23.05" 
           elif [[ "${{ inputs.source_branch }}" == *"rooter"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
-              TAGS_NAME="goldenorb"
+              TAGS_NAME="beta"
           else
               echo "Unknown source code repository."
               exit 1
