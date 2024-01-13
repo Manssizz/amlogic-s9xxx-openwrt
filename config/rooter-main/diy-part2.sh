@@ -28,27 +28,29 @@ echo "DISTRIB_SOURCECODE='official'" >>package/base-files/files/etc/openwrt_rele
 # ------------------------------- Other started -------------------------------
 #
 # Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+rm -rf package/luci-app-amlogic
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 ### libpam
-svn co https://github.com/openwrt/packages/trunk/libs/libpam package/libpam
+# svn co https://github.com/openwrt/packages/trunk/libs/libpam package/libpam
 
 ### Rooter depend
-svn co https://github.com/Manssizz/rooter-patch/trunk/luci-proto-mbim package/luci-proto-mbim
-svn co https://github.com/Manssizz/rooter-patch/trunk/me909s package/me909s
-svn co https://github.com/Manssizz/rooter-patch/trunk/rmbim package/rmbim
-svn co https://github.com/Manssizz/rooter-patch/trunk/rqmi package/rqmi
-svn co https://github.com/Manssizz/rooter-patch/trunk/umbim package/umbim
-svn co https://github.com/Manssizz/rooter-patch/trunk/uqmi package/uqmi
-svn co https://github.com/Manssizz/rooter-patch/trunk/ext-rooter-basic package/ext-rooter-basic
+git clone https://github.com/Manssizz/rooter-patch.git package/rooter-patch
+# svn co https://github.com/Manssizz/rooter-patch/trunk/luci-proto-mbim package/luci-proto-mbim
+# svn co https://github.com/Manssizz/rooter-patch/trunk/me909s package/me909s
+# svn co https://github.com/Manssizz/rooter-patch/trunk/rmbim package/rmbim
+# svn co https://github.com/Manssizz/rooter-patch/trunk/rqmi package/rqmi
+# svn co https://github.com/Manssizz/rooter-patch/trunk/umbim package/umbim
+# svn co https://github.com/Manssizz/rooter-patch/trunk/uqmi package/uqmi
+# svn co https://github.com/Manssizz/rooter-patch/trunk/ext-rooter-basic package/ext-rooter-basic
 
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/feeds/luci package/luci
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter  package/rooter
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-builds/0protocols/luci-proto-3x  package/luci-proto-3x
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0optionalapps/ext-autoapn package/ext-autoapn
-svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-extra/ext-simplegps package/ext-simplegps
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-builds/0protocols/luci-proto-3x  package/luci-proto-3x
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0optionalapps/ext-autoapn package/ext-autoapn
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-extra/ext-simplegps package/ext-simplegps
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/ext-login package/ext-login
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/luci-theme-argon package/luci-theme-argon
 # svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/luci-theme-argondark package/luci-theme-argondark
@@ -58,12 +60,12 @@ svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-extra
 
 # svn co https://github.com/openwrt/openwrt/trunk/package/network/utils/umbim package/umbim
 ### luci-app-modem
-svn co https://github.com/Manssizz/5G-Modem-Support/trunk/luci-app-modem package/luci-app-modem
+# svn co https://github.com/Manssizz/5G-Modem-Support/trunk/luci-app-modem package/luci-app-modem
 
 
 ### TurboACC
 # git clone https://github.com/fullcone-nat-nftables/nft-fullcone.git package/nft-fullcone
-svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/luci-app-turboacc
+# svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/luci-app-turboacc
 # svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk/luci-app-3ginfo-lite package/luci-app-3ginfo-lite
 # svn co https://github.com/imy7/luci-app-turboacc/trunk/Lienol package/luci-app-turboacc
 
@@ -72,8 +74,8 @@ svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/
 # svn co https://github.com/Lienol/openwrt-packages/trunk/utils/{containerd,libnetwork,runc,tini} feeds/packages/utils
 
 ## Golang
-rm -rf ./package/lang/golang
-svn co https://github.com/openwrt/packages/trunk/lang/golang package/lang/golang
+# rm -rf ./package/lang/golang
+# svn co https://github.com/openwrt/packages/trunk/lang/golang package/lang/golang
 
 
 # QMI-Advance
