@@ -8,11 +8,6 @@
 
 # ------------------------------- Main source started -------------------------------
 #
-#sed -i '5i opkg remove *zh-cn* luci-app-ssr-plus mmdvm-luci mmdvm-host libmmdv shadowsocks-rust-sslocal shadowsocks-rust-ssserver shadowsocksr-libev-ssr-check' package/lean/default-settings/files/zzz-default-settings
-sed -i 's/CST-8/UCT+7/g' package/lean/default-settings/files/zzz-default-settings
-sed -i 's/Shanghai/Jakarta/g' package/lean/default-settings/files/zzz-default-settings
-sed -i "s/uci set system.@system[0].timezone=CST-8/uci set system.@system[0].hostname=Cendrawasih\nuci set system.@system[0].timezone=WIB-7/g" package/lean/default-settings/files/zzz-default-settings
-
 # Add the default password for the 'root' user（Change the empty password to 'password'）
 sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7:::/g' package/base-files/files/etc/shadow
 
@@ -28,24 +23,22 @@ echo "DISTRIB_SOURCECODE='official'" >>package/base-files/files/etc/openwrt_rele
 # ------------------------------- Other started -------------------------------
 #
 # Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
-
+rm -rf package/luci-app-amlogic
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 ### TurboACC
 # git clone https://github.com/fullcone-nat-nftables/nft-fullcone.git package/nft-fullcone
 # svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/luci-app-turboacc
-svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk/luci-app-3ginfo-lite package/luci-app-3ginfo-lite
-svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/luci-app-turboacc
+#svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk/luci-app-3ginfo-lite package/luci-app-3ginfo-lite
+#svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/luci-app-turboacc
 
 # coolsnowwolf default software package replaced with Lienol related software package
 # rm -rf feeds/packages/utils/{containerd,libnetwork,runc,tini}
 # svn co https://github.com/Lienol/openwrt-packages/trunk/utils/{containerd,libnetwork,runc,tini} feeds/packages/utils
 
-## Golang
-rm -rf ./package/lang/golang
-svn co https://github.com/openwrt/packages/trunk/lang/golang package/lang/golang
-
-git clone https://github.com/Manssizz/rmbim.git package/rmbim
+### 5G Support
+# git clone https://github.com/Siriling/5G-Modem-Support.git package/5G-Modem-Support
+git clone https://github.com/Manssizz/rooter-patch.git package/rooter-patch
 
 # QMI-Advance
 git clone https://github.com/ddimension/qmi-advanced.git package/qmi-advanced
