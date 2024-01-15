@@ -250,7 +250,7 @@ jobs:
           elif [[ "${{ inputs.source_branch }}" == *"23.05"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-23.05"
-              TAGS_NAME="openclash-23.05
+              TAGS_NAME="openclash-23.05"
           else
               echo "Unknown source code repository."
               exit 1
