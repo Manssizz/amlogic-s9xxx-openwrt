@@ -18,6 +18,7 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
+          - openwrt-23.05 
       openwrt_board:
         description: "Select device board"
         required: false
@@ -152,10 +153,11 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "5.15.1_6.1.1"
+        default: "5.4.1_5.15.1"
         type: choice
         options:
           - 5.4.1_5.10.1
+          - 5.4.1_5.15.1
           - 5.15.1_6.1.1
           - 5.4.1
           - 5.10.1
@@ -169,10 +171,11 @@ on:
       kernel_repo:
         description: "Set the kernel repository"
         required: false
-        default: "ophub/kernel"
+        default: "Manssizz/ophub-kernel"
         type: choice
         options:
           - ophub/kernel
+          - Manssizz/ophub-kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -186,19 +189,22 @@ on:
       openwrt_storage:
         description: "Select image storage type."
         required: false
-        default: "save"
+        default: "temp"
         type: choice
         options:
           - save
+          - beta
           - temp
+          - openclash
+          - rooter
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "ophub"
+        default: "cendrawasih"
         type: choice
         options:
-          - ophub
           - angel
+          - cendrawasih
           - yourname
 
 env:
