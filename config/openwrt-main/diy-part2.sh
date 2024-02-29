@@ -25,6 +25,15 @@ echo "DISTRIB_SOURCECODE='official'" >>package/base-files/files/etc/openwrt_rele
 # Add luci-app-amlogic
 rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+
+### 5G Support
+# git clone https://github.com/Siriling/5G-Modem-Support.git package/5G-Modem-Support
+# git clone https://github.com/Manssizz/rooter-patch.git package/rooter-patch
+
+# QMI-Advance
+git clone https://github.com/ddimension/qmi-advanced.git package/qmi-advanced
+
+
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci

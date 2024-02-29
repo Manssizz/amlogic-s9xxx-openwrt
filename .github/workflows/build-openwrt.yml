@@ -228,7 +228,7 @@ jobs:
           sudo swapoff -a
           sudo rm -f /swapfile /mnt/swapfile
           sudo -E apt-get -y update
-          sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
+          sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* man-db apache2 ufw exim4 firewalld snapd* apparmor bind9 || true
           sudo -E apt-get -y install $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt)
           sudo -E systemctl daemon-reload
           #sudo -E apt-get -y full-upgrade
@@ -267,6 +267,10 @@ jobs:
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
               TAGS_NAME="official"
+          elif [[ "${{ inputs.source_branch }}" == *"23.05"* ]]; then
+              REPO_URL="https://github.com/openwrt/openwrt"
+              REPO_BRANCH="openwrt-23.05"
+              TAGS_NAME="openclash-23.05"
           elif [[ "${{ inputs.source_branch }}" == *"lede"* ]]; then
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
@@ -388,6 +392,15 @@ jobs:
             - Default password: password
             - Default WIFI name: OpenWrt
             - Default WIFI password: none
+            ### Package
+            - Docker
+            - Modem packages
+            - Openclash
+            - Passwall
+            - Adguardhome
+            - etc.
+            ### OpenWrt Image Verification
+            - sha256sum
             ### Install to EMMC
             - Login to OpenWrt → System → Amlogic Service → Install OpenWrt
             ### OpenWrt Image Verification
