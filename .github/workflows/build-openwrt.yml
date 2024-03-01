@@ -16,9 +16,9 @@ on:
         type: choice
         options:
           - openwrt-main
+          - openclash-main
           - lede-master
           - immortalwrt-master
-          - openwrt-openclash 
       openwrt_board:
         description: "Select device board"
         required: false
