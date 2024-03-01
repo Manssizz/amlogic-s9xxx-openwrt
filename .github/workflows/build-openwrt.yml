@@ -18,7 +18,7 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
-          - openwrt-23.05 
+          - openwrt-openclash 
       openwrt_board:
         description: "Select device board"
         required: false
@@ -273,10 +273,10 @@ jobs:
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
               TAGS_NAME="official"
-          elif [[ "${{ inputs.source_branch }}" == *"23.05"* ]]; then
+          elif [[ "${{ inputs.source_branch }}" == *"openclash"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-23.05"
-              TAGS_NAME="openclash-23.05"
+              TAGS_NAME="openclash"
           elif [[ "${{ inputs.source_branch }}" == *"lede"* ]]; then
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
