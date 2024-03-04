@@ -17,7 +17,7 @@ on:
         options:
           - openwrt-main
           - openclash-main
-          - openclash-lite
+          - modem-main
           - lede-master
           - immortalwrt-master
       openwrt_board:
@@ -278,10 +278,10 @@ jobs:
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-23.05"
               TAGS_NAME="openclash"
-          elif [[ "${{ inputs.source_branch }}" == *"lite"* ]]; then
+          elif [[ "${{ inputs.source_branch }}" == *"modem"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-23.05"
-              TAGS_NAME="lite"
+              TAGS_NAME="modem"
           elif [[ "${{ inputs.source_branch }}" == *"lede"* ]]; then
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
