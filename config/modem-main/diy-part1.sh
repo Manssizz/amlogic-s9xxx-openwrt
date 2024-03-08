@@ -11,7 +11,7 @@
 
 # kiddin9
 # sed -i '$a src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
-sed -i '$a src-git modem https://github.com/Siriling/5G-Modem-Support' feeds.conf.default
+sed -i '$a src-git modem https://github.com/Manssizz/5G-Modem-Support.git' feeds.conf.default
 
 # other
 # rm -rf package/utils/{ucode,fbtest}
