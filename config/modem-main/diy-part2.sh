@@ -38,7 +38,17 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 ### 5G Support
 # git clone https://github.com/Siriling/5G-Modem-Support.git package/5G-Modem-Support
-git clone https://github.com/Siriling/5G-Modem-Support.git package/modem
+
+
+### Adguardhome
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone https://github.com/4IceG/luci-app-modemband.git package/luci-app-modemband
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+git clone https://github.com/xiaozhuai/luci-app-filebrowser.git package/luci-app-filebrowser
+git clone https://github.com/zhengmz/luci-app-zerotier.git package/luci-app-zerotier
+git clone https://github.com/simonchen/luci-app-openclash.git package/luci-app-openclash
+
 
 # Add third-party software packages (The entire repository)
 # git clone https://github.com/libremesh/lime-packages.git package/lime-packages
