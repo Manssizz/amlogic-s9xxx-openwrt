@@ -38,10 +38,13 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 ### 5G Support
 # git clone https://github.com/Siriling/5G-Modem-Support.git package/5G-Modem-Support
-git clone https://github.com/Manssizz/rooter-patch.git package/rooter-patch
+# git clone https://github.com/Manssizz/rooter-patch.git package/rooter-patch
 
 # QMI-Advance
 git clone https://github.com/ddimension/qmi-advanced.git package/qmi-advanced
+
+# PPPOE SERVER
+git clone https://github.com/animegasan/luci-app-pppoe-server.git package/luci-app-pppoe-server
 
 # Add third-party software packages (The entire repository)
 # git clone https://github.com/libremesh/lime-packages.git package/lime-packages

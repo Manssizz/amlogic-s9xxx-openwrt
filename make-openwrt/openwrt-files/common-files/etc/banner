@@ -1,12 +1,7 @@
 								
-						 P R O J E C T  O F
- ▒█▀▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█▀▀▄ ▒█▀▀█ ░█▀▀█ ▒█░░▒█ ░█▀▀█ ▒█▀▀▀█ ▀█▀ ▒█░▒█ 
- ▒█░░░ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█ ▒█▄▄▀ ▒█▄▄█ ▒█▒█▒█ ▒█▄▄█ ░▀▀▀▄▄ ▒█░ ▒█▀▀█ 
- ▒█▄▄█ ▒█▄▄▄ ▒█░░▀█ ▒█▄▄▀ ▒█░▒█ ▒█░▒█ ▒█▄▀▄█ ▒█░▒█ ▒█▄▄▄█ ▄█▄ ▒█░▒█
-      	      [Openwrt with multimedia mini server]
+						  P R O J E C T  O F
+  ▒█▀▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█▀▀▄ ▒█▀▀█ ░█▀▀█ ▒█░░▒█ ░█▀▀█ ▒█▀▀▀█ ▀█▀ ▒█░▒█ 
+  ▒█░░░ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█ ▒█▄▄▀ ▒█▄▄█ ▒█▒█▒█ ▒█▄▄█ ░▀▀▀▄▄ ▒█░ ▒█▀▀█ 
+  ▒█▄▄█ ▒█▄▄▄ ▒█░░▀█ ▒█▄▄▀ ▒█░▒█ ▒█░▒█ ▒█▄▀▄█ ▒█░▒█ ▒█▄▄▄█ ▄█▄ ▒█░▒█
 
- Install OpenWrt: System → Amlogic Service → Install OpenWrt
- Update  OpenWrt: System → Amlogic Service → Online  Update
- Board: king3399 | OpenWrt Kernel: 6.1.55-cendrawasih
- Builder Name: cendrawasih | Production Date: 2023-12-22
 ───────────────────────────────────────────────────────────────────────
