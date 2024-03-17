@@ -16,6 +16,8 @@ on:
         type: choice
         options:
           - openwrt-main
+          - openclash-main
+          - modem-main
           - lede-master
           - immortalwrt-master
       openwrt_board:
@@ -163,6 +165,7 @@ on:
           - 5.15.y
           - 6.1.y
           - 6.6.y
+          - 5.4.y_5.15.y
           - 6.1.y_6.6.y
           - 6.1.y_5.15.y
           - 5.4.y_5.10.y
@@ -174,10 +177,11 @@ on:
       kernel_repo:
         description: "Set the kernel repository"
         required: false
-        default: "ophub/kernel"
+        default: "Manssizz/ophub-kernel"
         type: choice
         options:
           - ophub/kernel
+          - Manssizz/ophub-kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -191,19 +195,22 @@ on:
       openwrt_storage:
         description: "Select image storage type."
         required: false
-        default: "save"
+        default: "temp"
         type: choice
         options:
           - save
+          - beta
           - temp
+          - openclash
+          - rooter
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "ophub"
+        default: "cendrawasih"
         type: choice
         options:
-          - ophub
           - angel
+          - cendrawasih
           - yourname
 
 env:
@@ -211,7 +218,7 @@ env:
   CONFIG_FILE: config/${{ inputs.source_branch }}/config
   DIY_P1_SH: config/${{ inputs.source_branch }}/diy-part1.sh
   DIY_P2_SH: config/${{ inputs.source_branch }}/diy-part2.sh
-  TZ: America/New_York
+  TZ: Asia/Jakarta
 
 jobs:
   build:
@@ -233,7 +240,7 @@ jobs:
           sudo swapoff -a
           sudo rm -f /swapfile /mnt/swapfile
           sudo -E apt-get -y update
-          sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
+          sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* man-db apache2 ufw exim4 firewalld snapd* apparmor bind9 || true
           sudo -E apt-get -y install $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt)
           sudo -E systemctl daemon-reload
           #sudo -E apt-get -y full-upgrade
@@ -272,6 +279,14 @@ jobs:
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
               TAGS_NAME="official"
+          elif [[ "${{ inputs.source_branch }}" == *"openclash"* ]]; then
+              REPO_URL="https://github.com/openwrt/openwrt"
+              REPO_BRANCH="openwrt-23.05"
+              TAGS_NAME="openclash"
+          elif [[ "${{ inputs.source_branch }}" == *"modem"* ]]; then
+              REPO_URL="https://github.com/openwrt/openwrt"
+              REPO_BRANCH="openwrt-23.05"
+              TAGS_NAME="modem"
           elif [[ "${{ inputs.source_branch }}" == *"lede"* ]]; then
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
@@ -288,7 +303,7 @@ jobs:
           # Clone source code
           git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
           ln -sf /builder/openwrt ${GITHUB_WORKSPACE}/openwrt
-          ln -sf /builder/openwrt /home/runner/work/_actions/ophub/amlogic-s9xxx-openwrt/main/openwrt
+          ln -sf /builder/openwrt /home/runner/work/_actions/manssizz/amlogic-s9xxx-openwrt/cendrawasih/openwrt
 
           # Set output information
           echo "build_tag=OpenWrt_${TAGS_NAME}_${{ inputs.openwrt_storage }}_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
@@ -368,7 +383,7 @@ jobs:
 
       - name: Packaging OpenWrt
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: manssizz/amlogic-s9xxx-openwrt@cendrawasih
         with:
           openwrt_path: openwrt/output/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}

@@ -9,6 +9,10 @@
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 
+# kiddin9
+sed -i '$a src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
+sed -i '$a src-git modemfeed https://github.com/koshev-msk/modemfeed.git' feeds.conf.default
+
 # other
 # rm -rf package/utils/{ucode,fbtest}
 

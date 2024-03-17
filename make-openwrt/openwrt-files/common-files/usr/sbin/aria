@@ -1,0 +1,14 @@
+#!/bin/bash
+tracker_list=$(curl -Ns https://cf.trackerslist.com/all_aria2.txt | awk '$1' | tr '\n\n' ',')
+
+aria2c  --enable-rpc=true --no-conf --rpc-listen-all=true --allow-overwrite=true --auto-file-renaming=true \
+      --continue=true --dir=/mnt/sda1/aria2 --max-connection-per-server=14 --daemon=true --min-split-size=5M \
+      --max-concurrent-downloads=5 --max-resume-failure-tries=100 --peer-id-prefix=-qB4380- \
+      --on-download-complete=/mnt/sda1/aria2/.data/scripts/on_download_complete.sh \
+      --user-agent=qBittorrent/4.3.8 --peer-agent=qBittorrent/4.3.8 --bt-max-peers=50 --max-overall-upload-limit=1K \
+      --max-upload-limit=1K --max-tries=20 --max-file-not-found=5 --split=10 --disable-ipv6=true \
+      --seed-ratio=1.0 --seed-time=0 --bt-tracker="[$tracker_list]" --http-accept-gzip=true \
+      --bt-request-peer-speed-limit=0 --input-file=/mnt/sda1/aria2/.data/aria2.session \
+      --enable-dht=true --dht-listen-port=6881 --dht-file-path=/mnt/sda1/aria2/.data/dht.dat \
+      --reuse-uri=true --disk-cache=64M --file-allocation=falloc --netrc-path=/mnt/sda1/aria2/.data/.netrc \
+      --save-session=/mnt/sda1/aria2/.data/aria2.session
