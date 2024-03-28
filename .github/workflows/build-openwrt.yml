@@ -20,6 +20,8 @@ on:
           - modem-main
           - lede-master
           - immortalwrt-master
+          - rooter-main
+
       openwrt_board:
         description: "Select device board"
         required: false
@@ -295,6 +297,10 @@ jobs:
               REPO_URL="https://github.com/immortalwrt/immortalwrt"
               REPO_BRANCH="master"
               TAGS_NAME="immortalwrt"
+          elif [[ "${{ inputs.source_branch }}" == *"rooter"* ]]; then
+              REPO_URL="https://github.com/openwrt/openwrt"
+              REPO_BRANCH="main"
+              TAGS_NAME="goldenorb"
           else
               echo "Unknown source code repository."
               exit 1
