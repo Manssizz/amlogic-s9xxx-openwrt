@@ -1,0 +1,86 @@
+#!/bin/bash
+#========================================================================================================================
+# https://github.com/ophub/amlogic-s9xxx-openwrt
+# Description: Automatically Build OpenWrt
+# Function: Diy script (After Update feeds, Modify the default IP, hostname, theme, add/remove software packages, etc.)
+# Source code repository: https://github.com/openwrt/openwrt / Branch: main
+#========================================================================================================================
+
+# ------------------------------- Main source started -------------------------------
+#
+#sed -i '5i opkg remove *zh-cn* luci-app-ssr-plus mmdvm-luci mmdvm-host libmmdv shadowsocks-rust-sslocal shadowsocks-rust-ssserver shadowsocksr-libev-ssr-check' package/lean/default-settings/files/zzz-default-settings
+# sed -i 's/CST-8/UCT+7/g' package/lean/default-settings/files/zzz-default-settings
+# sed -i 's/Shanghai/Jakarta/g' package/lean/default-settings/files/zzz-default-settings
+# sed -i "s/uci set system.@system[0].timezone=CST-8/uci set system.@system[0].hostname=Cendrawasih\nuci set system.@system[0].timezone=WIB-7/g" package/lean/default-settings/files/zzz-default-settings
+
+# Add the default password for the 'root' user（Change the empty password to 'password'）
+sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7:::/g' package/base-files/files/etc/shadow
+
+# Set etc/openwrt_release
+sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
+echo "DISTRIB_SOURCECODE='official'" >>package/base-files/files/etc/openwrt_release
+
+# Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
+# sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
+#
+# ------------------------------- Main source ends -------------------------------
+
+# ------------------------------- Other started -------------------------------
+#
+# Add luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+
+### libpam
+svn co https://github.com/openwrt/packages/trunk/libs/libpam package/libpam
+### ROOter
+git clone https://github.com/Manssizz/ext-rooter-basic.git  package/ext-rooter-basic
+
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/feeds/luci package/luci
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter  package/rooter
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-builds/0protocols/luci-proto-3x  package/luci-proto-3x
+svn co https://github.com/mrhaav/openwrt-packages/trunk/uqmi  package/uqmi
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rmbim  package/rmbim
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0drivers/rqmi  package/rqmi
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0optionalapps/ext-autoapn package/ext-autoapn
+svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter-extra/ext-simplegps package/ext-simplegps
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/ext-login package/ext-login
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/luci-theme-argon package/luci-theme-argon
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/luci-theme-argondark package/luci-theme-argondark
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/ext-theme package/ext-theme
+# 
+# svn co https://github.com/ofmodemsandmen/RooterSource/trunk/package/rooter/0themes/theme-data package/theme-data
+
+### TurboACC
+# git clone https://github.com/fullcone-nat-nftables/nft-fullcone.git package/nft-fullcone
+# svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/luci-app-turboacc
+# svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk/luci-app-3ginfo-lite package/luci-app-3ginfo-lite
+# svn co https://github.com/imy7/luci-app-turboacc/trunk/Lienol package/luci-app-turboacc
+
+# coolsnowwolf default software package replaced with Lienol related software package
+# rm -rf feeds/packages/utils/{containerd,libnetwork,runc,tini}
+# svn co https://github.com/Lienol/openwrt-packages/trunk/utils/{containerd,libnetwork,runc,tini} feeds/packages/utils
+
+## Golang
+rm -rf ./package/lang/golang
+svn co https://github.com/openwrt/packages/trunk/lang/golang package/lang/golang
+
+
+# QMI-Advance
+git clone https://github.com/ddimension/qmi-advanced.git package/qmi-advanced
+
+# Add third-party software packages (The entire repository)
+# git clone https://github.com/libremesh/lime-packages.git package/lime-packages
+# Add third-party software packages (Specify the package)
+# svn co https://github.com/libremesh/lime-packages/trunk/packages/{shared-state-pirania,pirania-app,pirania} package/lime-packages/packages
+# Add to compile options (Add related dependencies according to the requirements of the third-party software package Makefile)
+# sed -i "/DEFAULT_PACKAGES/ s/$/ pirania-app pirania ip6tables-mod-nat ipset shared-state-pirania uhttpd-mod-lua/" target/linux/armvirt/Makefile
+
+# Apply patch
+# git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
+#
+# max conntrack
+#sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+
+# ------------------------------- Other ends -------------------------------
