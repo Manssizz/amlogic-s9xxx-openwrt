@@ -182,6 +182,7 @@ on:
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
+          - 5.15.y_6.6.y
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
@@ -190,10 +191,11 @@ on:
       kernel_repo:
         description: "Set the kernel repository"
         required: false
-        default: "ophub/kernel"
+        default: "manssizz/ophub-kernel"
         type: choice
         options:
           - ophub/kernel
+          - manssizz/ophub-kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -215,11 +217,12 @@ on:
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "ophub"
+        default: "cendrawasih"
         type: choice
         options:
           - ophub
           - angel
+          - cendrawasih
           - yourname
 
 env:
@@ -227,7 +230,7 @@ env:
   CONFIG_FILE: config/${{ inputs.source_branch }}/config
   DIY_P1_SH: config/${{ inputs.source_branch }}/diy-part1.sh
   DIY_P2_SH: config/${{ inputs.source_branch }}/diy-part2.sh
-  TZ: America/New_York
+  TZ: Asia/Jakarta
 
 jobs:
   build:
@@ -384,7 +387,7 @@ jobs:
 
       - name: Packaging OpenWrt
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: manssizz/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: openwrt/output/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
