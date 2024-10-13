@@ -301,7 +301,6 @@ jobs:
               REPO_URL="https://github.com/immortalwrt/immortalwrt"
               REPO_BRANCH="master"
               TAGS_NAME="immortalwrt"
-              TAGS_NAME="lede"
           elif [[ "${{ inputs.source_branch }}" == *"23"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-23.05"
@@ -394,7 +393,7 @@ jobs:
 
       - name: Packaging OpenWrt
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: manssizz/amlogic-s9xxx-openwrt@cendrawasih
         with:
           openwrt_path: openwrt/output/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
@@ -418,7 +417,7 @@ jobs:
             ### OpenWrt Image information
             - Default IP: 192.168.1.1
             - Default username: root
-            - Default password: password
+            - Default password: (blank)
             - Default WIFI name: OpenWrt
             - Default WIFI password: none
             ### Install to EMMC
