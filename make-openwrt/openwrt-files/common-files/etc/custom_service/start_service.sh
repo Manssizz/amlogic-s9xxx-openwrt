@@ -96,5 +96,13 @@ sawp_check_file="${PARTITION_PATH}/.swap/swapfile"
     [[ "${?}" == 0 ]] && echo "[$(date +"%Y.%m.%d.%H:%M:%S")] The swap file enabled successfully." >>${custom_log}
 }
 
+# Timesync
+bash /usr/sbin/time_sync 2>/dev/null &&
+    echo "[$(date +"%Y.%m.%d.%H:%M:%S")] Syncronize timedate successfully." >>${custom_log}
+
+# Auto restart modem
+/etc/init.d/cek start  2>/dev/null &&
+    echo "[$(date +"%Y.%m.%d.%H:%M:%S")] Auto restart modem started." >>${custom_log}
+    
 # Add custom log
 echo "[$(date +"%Y.%m.%d.%H:%M:%S")] All custom services executed successfully!" >>${custom_log}

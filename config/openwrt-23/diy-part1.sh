@@ -11,7 +11,7 @@
 
 sed -i '$a src-git modemfeed https://github.com/koshev-msk/modemfeed.git' feeds.conf.default
 sed -i '$a src-git additional https://github.com/oppen321/OpenWrt-Package.git' feeds.conf.default
-
+sed -i '$a src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main' feeds.conf.default
 
 # other
 # rm -rf package/utils/{ucode,fbtest}

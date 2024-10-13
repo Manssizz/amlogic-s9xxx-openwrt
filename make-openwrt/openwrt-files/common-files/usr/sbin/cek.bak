@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#while true; do
+while :
+do
+        ping -I wwan0 -4 -w60 fb.me 2> /dev/null
+        if [ $? -ne 0 ];
+        then
+                ifdown modem
+                sleep 1
+                ifup modem
+#                echo "$(date) ping was OK"
+                echo -e "$(date) \e[31mPING NOT OK, RESTARTING INTERFACE\e[0m"
+		echo "$(date) PING NOT OK, RESTARTING INTERFACE" >> /tmp/wwan.log
+		logger -t modem -p warning -s "PING NOT OK, RESTARTING INTERFACE" 
+                echo "$(date) Failed to connect" >> /root/wwan_monitor.log
+
+                sleep 300
+        else
+                echo -e "$(date) \e[32mPING OK\e[0m"
+        fi
+
+        sleep 5
+done
+
+

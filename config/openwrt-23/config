@@ -5548,7 +5548,7 @@ CONFIG_PACKAGE_libopenssl-conf=y
 # CONFIG_PACKAGE_libopenssl-gost_engine is not set
 CONFIG_PACKAGE_libopenssl-legacy=y
 # CONFIG_PACKAGE_libpolarssl is not set
-# CONFIG_PACKAGE_libwolfssl is not set
+CONFIG_PACKAGE_libwolfssl=y
 
 #
 # wolfSSL Library Configuration
@@ -6212,7 +6212,7 @@ CONFIG_PACKAGE_luci-compat=y
 CONFIG_PACKAGE_luci-lua-runtime=y
 CONFIG_PACKAGE_luci-mod-admin-full=y
 # CONFIG_PACKAGE_luci-mod-battstatus is not set
-# CONFIG_PACKAGE_luci-mod-dashboard is not set
+CONFIG_PACKAGE_luci-mod-dashboard=y
 # CONFIG_PACKAGE_luci-mod-dsl is not set
 CONFIG_PACKAGE_luci-mod-network=y
 # CONFIG_PACKAGE_luci-mod-rpc is not set

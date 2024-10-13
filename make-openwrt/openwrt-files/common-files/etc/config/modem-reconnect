@@ -1,0 +1,7 @@
+config modem 'settings'
+	option interfaceName 'wwan0'
+	option primaryTarget 'vidio.com'
+	option secondaryTarget 'fb.me'
+	option retryInterval '30'
+	option failSleepTime '300'
+	option pingTimeout '60'
