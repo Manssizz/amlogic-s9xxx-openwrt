@@ -211,11 +211,12 @@ on:
       openwrt_storage:
         description: "Select image storage type."
         required: false
-        default: "save"
+        default: "low-latency"
         type: choice
         options:
           - save
           - temp
+          - low-latency
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
