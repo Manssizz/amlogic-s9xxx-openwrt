@@ -6,9 +6,9 @@ do
         ping -I wwan0 -4 -w60 fb.me 2> /dev/null
         if [ $? -ne 0 ];
         then
-                ifdown modem
+                ifconfig wwan0 down
                 sleep 1
-                ifup modem
+                ifconfig wwan0 up
 #                echo "$(date) ping was OK"
                 echo -e "$(date) \e[31mPING NOT OK, RESTARTING INTERFACE\e[0m"
 		echo "$(date) PING NOT OK, RESTARTING INTERFACE" >> /tmp/wwan.log

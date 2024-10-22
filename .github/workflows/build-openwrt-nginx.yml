@@ -3,7 +3,7 @@
 # Description: Build OpenWrt
 #============================================================================================
 
-name: Build OpenWrt
+name: Build OpenWrt with Nginx
 
 on:
   repository_dispatch:
@@ -211,12 +211,13 @@ on:
       openwrt_storage:
         description: "Select image storage type."
         required: false
-        default: "low-latency"
+        default: "nginx"
         type: choice
         options:
           - save
           - temp
           - low-latency
+          - nginx
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
@@ -345,6 +346,18 @@ jobs:
           chmod +x ${DIY_P2_SH}
           cd openwrt/
           ${GITHUB_WORKSPACE}/${DIY_P2_SH}
+
+      - name: Replace uhttpd with nginx
+        run: |
+          cd openwrt/
+          sed -i "s/CONFIG_PACKAGE_luci=y/# CONFIG_PACKAGE_luci is not set/g" .config
+          sed -i "s/CONFIG_PACKAGE_luci-ssl=y/# CONFIG_PACKAGE_luci-ssl is not set/g" .config
+          sed -i "s/# CONFIG_PACKAGE_luci-nginx is not set/CONFIG_PACKAGE_luci-nginx=y/g" .config
+          sed -i "s/# CONFIG_PACKAGE_luci-ssl-nginx is not set/CONFIG_PACKAGE_luci-ssl-nginx=y/g" .config
+          sed -i "s/# CONFIG_PACKAGE_luci-app-nginx-manager is not set/CONFIG_PACKAGE_luci-app-nginx-manager=y/g" .config
+          sed -i "s/CONFIG_PACKAGE_uhttpd=y/# CONFIG_PACKAGE_uhttpd is not set/g" .config
+          sed -i "s/CONFIG_PACKAGE_uhttpd-mod-ubus=y/# CONFIG_PACKAGE_uhttpd-mod-ubus is not set/g" .config
+          sed -i "s/# CONFIG_PACKAGE_nginx-mod-ubus is not set/CONFIG_PACKAGE_nginx-mod-ubus=y/g" .config
 
       - name: Download package
         id: package

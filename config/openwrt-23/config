@@ -6145,12 +6145,12 @@ CONFIG_PACKAGE_zlib=y
 #
 # 1. Collections
 #
-# CONFIG_PACKAGE_luci is not set
+CONFIG_PACKAGE_luci=y
 CONFIG_PACKAGE_luci-lib-docker=y
 # CONFIG_PACKAGE_luci-light is not set
-CONFIG_PACKAGE_luci-nginx=y
-# CONFIG_PACKAGE_luci-ssl is not set
-CONFIG_PACKAGE_luci-ssl-nginx=y
+# CONFIG_PACKAGE_luci-nginx is not set
+CONFIG_PACKAGE_luci-ssl=y
+# CONFIG_PACKAGE_luci-ssl-nginx is not set
 # CONFIG_PACKAGE_luci-ssl-openssl is not set
 # end of 1. Collections
 
@@ -6211,7 +6211,7 @@ CONFIG_PACKAGE_luci-compat=y
 CONFIG_PACKAGE_luci-lua-runtime=y
 CONFIG_PACKAGE_luci-mod-admin-full=y
 # CONFIG_PACKAGE_luci-mod-battstatus is not set
-CONFIG_PACKAGE_luci-mod-dashboard=y
+# CONFIG_PACKAGE_luci-mod-dashboard is not set
 # CONFIG_PACKAGE_luci-mod-dsl is not set
 CONFIG_PACKAGE_luci-mod-network=y
 # CONFIG_PACKAGE_luci-mod-rpc is not set
@@ -6421,7 +6421,7 @@ CONFIG_PACKAGE_luci-app-modeminfo=y
 # CONFIG_PACKAGE_luci-app-nfs is not set
 CONFIG_PACKAGE_luci-app-nft-qos=y
 # CONFIG_PACKAGE_luci-app-nginx is not set
-CONFIG_PACKAGE_luci-app-nginx-manager=y
+# CONFIG_PACKAGE_luci-app-nginx-manager is not set
 # CONFIG_PACKAGE_luci-app-nginx-pingos is not set
 # CONFIG_PACKAGE_luci-app-ngrokc is not set
 # CONFIG_PACKAGE_luci-app-njitclient is not set
@@ -8575,7 +8575,7 @@ CONFIG_PACKAGE_bash=y
 # CONFIG_PACKAGE_klish is not set
 # CONFIG_PACKAGE_mksh is not set
 # CONFIG_PACKAGE_tcsh is not set
-# CONFIG_PACKAGE_zsh is not set
+CONFIG_PACKAGE_zsh=y
 # end of Shells
 
 #

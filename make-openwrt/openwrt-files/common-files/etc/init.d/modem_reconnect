@@ -28,7 +28,7 @@ start() {
         return 1
     fi
 
-    # Jalankan skrip modem reconnect Anda di background
+    # Jalankan skrip modem reconnect di background
     /usr/sbin/modem_reconnect &
     echo "$SERVICE_NAME started."
 }
@@ -36,7 +36,6 @@ start() {
 # Stop service
 stop() {
     echo "Stopping $SERVICE_NAME..."
-    # Hentikan skrip jika berjalan
     killall modem_reconnect
     echo "$SERVICE_NAME stopped."
 }
