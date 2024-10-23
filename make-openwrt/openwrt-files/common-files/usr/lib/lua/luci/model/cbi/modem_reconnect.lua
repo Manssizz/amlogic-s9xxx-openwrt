@@ -1,6 +1,6 @@
 local sys = require "luci.sys"
 
-m = Map("modem_reconnect", "Modem Reconnect Settings", "Configure settings for auto reconnecting the modem interface.")
+m = Map("modem_reconnect", "Modem Reconnect", "Configure settings for auto reconnecting the modem interface.")
 
 s = m:section(TypedSection, "modem", "Modem Configuration")
 s.addremove = false

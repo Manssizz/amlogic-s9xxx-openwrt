@@ -1,73 +1,25 @@
 #!/bin/sh /etc/rc.common
 
-# Nama dan deskripsi service
-START=99
-STOP=10
-SERVICE_NAME="modem_reconnect"
+START=97
+STOP=01
 
-# Path konfigurasi
-CONFIG_FILE="/etc/modem-reconnect"
+PROG="/usr/sbin/modem_reconnect"
 
-# Baca konfigurasi
-read_config() {
-    if [ -f "$CONFIG_FILE" ]; then
-        . "$CONFIG_FILE"
-    else
-        echo "Config file not found: $CONFIG_FILE"
-        return 1
+run_instance() {
+    config_get enabled "$1" enabled "0"
+    if [ $enabled = "1" ]; then
+        $PROG service "$1"
     fi
 }
 
-# Start service
 start() {
-    echo "Starting $SERVICE_NAME..."
-    # Membaca konfigurasi
-    read_config
-    if [ $? -ne 0 ]; then
-        echo "Failed to read config. Exiting."
-        return 1
+    config_load modem_reconenct
+    config_get mode "config" mode "0"
+    if [ $mode = "1" ]; then
+        config_foreach run_instance "instance"
     fi
-
-    # Jalankan skrip modem reconnect di background
-    /usr/sbin/modem_reconnect &
-    echo "$SERVICE_NAME started."
 }
 
-# Stop service
 stop() {
-    echo "Stopping $SERVICE_NAME..."
-    killall modem_reconnect
-    echo "$SERVICE_NAME stopped."
+    $PROG stop
 }
-
-# Cek status
-status() {
-    if pgrep -x "modem_reconnect" > /dev/null; then
-        echo "$SERVICE_NAME is running."
-    else
-        echo "$SERVICE_NAME is not running."
-    fi
-}
-
-# Periksa argumen dan jalankan fungsi yang sesuai
-case "$1" in
-    start)
-        start
-        ;;
-    stop)
-        stop
-        ;;
-    restart)
-        stop
-        start
-        ;;
-    status)
-        status
-        ;;
-    *)
-        echo "Usage: $0 {start|stop|restart|status}"
-        exit 1
-        ;;
-esac
-
-exit 0

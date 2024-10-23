@@ -15,6 +15,15 @@
 #========================================================================================
 #
 # Find the partition where root is located
+MODEL=$(cat /proc/device-tree/model | tr -d "\000")
+if [ "$MODEL" == "Rongpin King3399" ]; then
+    echo 50 > /sys/class/gpio/export
+    echo high > /sys/class/gpio/gpio50/direction
+    echo 56 > /sys/class/gpio/export
+    echo high > /sys/class/gpio/gpio56/direction
+    echo 1 > /sys/class/gpio/gpio56/value
+fi
+
 ROOT_PTNAME="$(df -h /boot | tail -n1 | awk '{print $1}' | awk -F '/' '{print $3}')"
 if [[ -n "${ROOT_PTNAME}" ]]; then
 
