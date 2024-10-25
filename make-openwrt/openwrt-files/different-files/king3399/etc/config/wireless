@@ -13,4 +13,3 @@ config wifi-iface 'default_radio0'
 	option mode 'ap'
 	option ssid 'Cendrawasih Networks'
 	option encryption 'none'
-
