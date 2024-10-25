@@ -84,7 +84,7 @@ script_repo="https://github.com/ophub/luci-app-amlogic"
 # Set the kernel download repository from github.com
 kernel_repo="https://github.com/manssizz/ophub-kernel"
 # Set the tags(kernel_xxx) of the default kernel that can be replaced via the [ -u ] parameter
-default_tags="stable"
+default_tags="low-latency"
 kernel_usage=""
 # Set the list of kernels used by default(Selectable version)
 stable_kernel=("6.6.y" "6.1.y")
