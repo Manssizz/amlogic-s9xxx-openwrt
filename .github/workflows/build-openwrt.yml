@@ -12,11 +12,12 @@ on:
       source_branch:
         description: "Select the source branch"
         required: false
-        default: "openwrt-23"
+        default: "clash"
         type: choice
         options:
-          - openwrt-main
-          - openwrt-23
+          - main
+          - 23
+          - clash
           - lede-master
           - immortalwrt-master
       openwrt_board:
@@ -173,7 +174,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "6.1.y_6.6.y"
+        default: "5.15.y_6.1.y_6.6.y"
         type: choice
         options:
           - 5.4.y
@@ -183,7 +184,7 @@ on:
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
-          - 5.15.y_6.6.y
+          - 5.15.y_6.1.y_6.6.y
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
@@ -211,12 +212,13 @@ on:
       openwrt_storage:
         description: "Select image storage type."
         required: false
-        default: "low-latency"
+        default: "save"
         type: choice
         options:
           - save
           - temp
           - low-latency
+          - clash-only
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
@@ -291,7 +293,7 @@ jobs:
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
           # Set up compilation source code
-          if [[ "${{ inputs.source_branch }}" == *"openwrt"* ]]; then
+          if [[ "${{ inputs.source_branch }}" == *"main"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
               TAGS_NAME="official"
@@ -307,6 +309,11 @@ jobs:
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-23.05"
               TAGS_NAME="23.05-LTS"
+              TAGS_NAME="immortalwrt"
+          elif [[ "${{ inputs.source_branch }}" == *"clash"* ]]; then
+              REPO_URL="https://github.com/openwrt/openwrt"
+              REPO_BRANCH="openwrt-23.05"
+              TAGS_NAME="Clash"
           else
               echo "Unknown source code repository."
               exit 1
