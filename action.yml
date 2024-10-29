@@ -17,11 +17,11 @@ inputs:
   kernel_repo:
     description: "Select kernel repository."
     required: false
-    default: "ophub/kernel"
+    default: "manssizz/ophub-kernel"
   kernel_usage:
     description: "Set the tags of the stable kernel."
     required: false
-    default: "stable"
+    default: "low-latency"
   openwrt_kernel:
     description: "Select kernel version."
     required: false
@@ -33,11 +33,11 @@ inputs:
   openwrt_size:
     description: "Set the rootfs size(Unit: MiB)."
     required: false
-    default: ""
+    default: "1024"
   builder_name:
     description: "Set OpenWrt builder signature."
     required: false
-    default: ""
+    default: "Cendrawasih"
 
 runs:
   using: "composite"
