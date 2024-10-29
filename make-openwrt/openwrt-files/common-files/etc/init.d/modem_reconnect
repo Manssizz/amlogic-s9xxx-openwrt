@@ -1,25 +1,9 @@
 #!/bin/sh /etc/rc.common
-
-START=97
+USE_PROCD=1
+START=95
 STOP=01
-
-PROG="/usr/sbin/modem_reconnect"
-
-run_instance() {
-    config_get enabled "$1" enabled "0"
-    if [ $enabled = "1" ]; then
-        $PROG service "$1"
-    fi
-}
-
-start() {
-    config_load modem_reconenct
-    config_get mode "config" mode "0"
-    if [ $mode = "1" ]; then
-        config_foreach run_instance "instance"
-    fi
-}
-
-stop() {
-    $PROG stop
+start_service() {
+    procd_open_instance
+    procd_set_param command /bin/sh "/var/myscript.sh"
+    procd_close_instance
 }
