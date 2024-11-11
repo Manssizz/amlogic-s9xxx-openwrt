@@ -17,6 +17,7 @@ on:
         type: choice
         options:
           - all
+          - s912_s905x_s922x_s905x-b860h_king3399
           - s922x_s905x3_s905x2_s912_s905d_s905
           - ak88
           - beikeyun
@@ -58,7 +59,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "6.6.y"
+        default: "5.15.y_6.1.y"
         type: choice
         options:
           - 5.4.y
@@ -67,14 +68,16 @@ on:
           - 6.1.y
           - 6.6.y
           - 6.1.y_6.6.y
+          - 5.15.y_6.1.y
           - 5.15.y_5.10.y
       kernel_repo:
         description: "Set the kernel repository"
         required: false
-        default: "ophub/kernel"
+        default: "manssizz/ophub-kernel"
         type: choice
         options:
           - ophub/kernel
+          - manssizz/ophub-kernel
           - breakings/OpenWrt
       auto_kernel:
         description: "Auto use the latest kernel"
@@ -84,7 +87,7 @@ on:
       openwrt_storage:
         description: "Select image storage type."
         required: false
-        default: "save"
+        default: "temp"
         type: choice
         options:
           - save
@@ -92,19 +95,20 @@ on:
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "ophub"
+        default: "cendrawasih"
         type: choice
         options:
           - ophub
           - angel
+          - cendrawasih
           - yourname
 
 env:
-  TZ: America/New_York
+  TZ: Asia/Jakarta
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: ${{ github.event.repository.owner.id }} == ${{ github.event.sender.id }}
 
     steps:
@@ -122,7 +126,7 @@ jobs:
           sudo swapoff -a
           sudo rm -f /swapfile /mnt/swapfile
           sudo -E apt-get -y update
-          sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
+          sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* snapd || true
           sudo -E apt-get -y install $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt)
           sudo -E systemctl daemon-reload
           #sudo -E apt-get -y full-upgrade
@@ -156,8 +160,8 @@ jobs:
         working-directory: /builder
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
-          armvirt_tarfile_repo="ophub/amlogic-s9xxx-openwrt"
-          releases_tag_keywords="OpenWrt_lede_"
+          armvirt_tarfile_repo="manssizz/amlogic-s9xxx-openwrt"
+          releases_tag_keywords="OpenWrt_official_"
 
           armvirt_tarfile_path="openwrt/output"
           [[ -d "${armvirt_tarfile_path}" ]] || mkdir -p ${armvirt_tarfile_path}
