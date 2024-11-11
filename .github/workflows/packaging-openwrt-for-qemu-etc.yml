@@ -73,7 +73,7 @@ on:
       kernel_repo:
         description: "Set the kernel repository"
         required: false
-        default: "manssizz/ophub-kernel"
+        default: "anssizz/ophub-kernel"
         type: choice
         options:
           - ophub/kernel
@@ -160,7 +160,7 @@ jobs:
         working-directory: /builder
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
-          armvirt_tarfile_repo="manssizz/amlogic-s9xxx-openwrt"
+          armvirt_tarfile_repo="Manssizz/amlogic-s9xxx-openwrt"
           releases_tag_keywords="OpenWrt_official_"
 
           armvirt_tarfile_path="openwrt/output"
