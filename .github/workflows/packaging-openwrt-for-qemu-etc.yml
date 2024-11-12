@@ -73,7 +73,7 @@ on:
       kernel_repo:
         description: "Set the kernel repository"
         required: false
-        default: "anssizz/ophub-kernel"
+        default: "manssizz/ophub-kernel"
         type: choice
         options:
           - ophub/kernel
