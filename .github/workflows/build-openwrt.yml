@@ -310,7 +310,6 @@ jobs:
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-23.05"
               TAGS_NAME="23.05-LTS"
-              TAGS_NAME="immortalwrt"
           elif [[ "${{ inputs.source_branch }}" == *"clash"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-23.05"
