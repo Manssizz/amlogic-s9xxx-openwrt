@@ -161,7 +161,7 @@ jobs:
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
           armvirt_tarfile_repo="Manssizz/amlogic-s9xxx-openwrt"
-          releases_tag_keywords="OpenWrt_official_"
+          releases_tag_keywords="OpenWrt_Official_"
 
           armvirt_tarfile_path="openwrt/output"
           [[ -d "${armvirt_tarfile_path}" ]] || mkdir -p ${armvirt_tarfile_path}
