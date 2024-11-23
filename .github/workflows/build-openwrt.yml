@@ -12,10 +12,10 @@ on:
       source_branch:
         description: "Select the source branch"
         required: false
-        default: "main"
+        default: "openwrt-main"
         type: choice
         options:
-          - main
+          - openwrt-main
           - 23
           - clash
           - lede-master
