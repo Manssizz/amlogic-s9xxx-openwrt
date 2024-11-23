@@ -6670,7 +6670,7 @@ CONFIG_PACKAGE_luci-proto-3g=y
 # CONFIG_PACKAGE_luci-proto-batman-adv is not set
 CONFIG_PACKAGE_luci-proto-bonding=y
 # CONFIG_PACKAGE_luci-proto-external is not set
-# CONFIG_PACKAGE_luci-proto-fm350 is not set
+CONFIG_PACKAGE_luci-proto-fm350=y
 # CONFIG_PACKAGE_luci-proto-gre is not set
 # CONFIG_PACKAGE_luci-i18n-nft-qos-es is not set
 # CONFIG_PACKAGE_luci-i18n-nft-qos-fi is not set
@@ -9204,3 +9204,19 @@ CONFIG_PACKAGE_luci-app-macvlan=y
 # CONFIG_PACKAGE_fontconfig is not set
 # end of Font-Utils
 # end of Xorg
+
+#
+# Extra package by Dedemyth
+#
+CONFIG_PACKAGE_luci-proto-modemmanager=y
+CONFIG_PACKAGE_luci-proto-xmm=y
+CONFIG_PACKAGE_luci-proto-wireguard=y
+CONFIG_PACKAGE_luci-proto-qmi=y
+CONFIG_PACKAGE_luci-proto-mbim=y
+CONFIG_PACKAGE_luci-proto-ncm=y
+CONFIG_PACKAGE_luci-proto-sstp=y
+CONFIG_PACKAGE_luci-proto-ipv6=y
+CONFIG_PACKAGE_luci-proto-bonding=y
+CONFIG_PACKAGE_luci-app-ttl=y
+CONFIG_PACKAGE_luci-app-accesscontrol-plus=y
+CONFIG_PACKAGE_luci-app-nekobox=y
