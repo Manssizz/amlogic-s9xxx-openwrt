@@ -15,6 +15,14 @@
 #========================================================================================
 #
 # Find the partition where root is located
+MODEL=$(cat /proc/device-tree/model | tr -d "\000")
+if [ "$MODEL" == "Rongpin King3399" ]; then
+    echo 50 > /sys/class/gpio/export && echo high > /sys/class/gpio/gpio50/direction
+    sleep 10
+    echo 56 > /sys/class/gpio/export && echo high > /sys/class/gpio/gpio56/direction
+    echo 1 > /sys/class/gpio/gpio56/value
+fi
+
 ROOT_PTNAME="$(df -h /boot | tail -n1 | awk '{print $1}' | awk -F '/' '{print $3}')"
 if [[ -n "${ROOT_PTNAME}" ]]; then
 
@@ -95,6 +103,18 @@ sawp_check_file="${PARTITION_PATH}/.swap/swapfile"
     swapon ${swap_loopdev}
     [[ "${?}" == 0 ]] && echo "[$(date +"%Y.%m.%d.%H:%M:%S")] The swap file enabled successfully." >>${custom_log}
 }
+
+# Timesync
+bash /usr/sbin/time_sync 2>/dev/null &&
+    echo "[$(date +"%Y.%m.%d.%H:%M:%S")] Syncronize timedate successfully." >>${custom_log}
+
+# Set TTL to 64
+iptables -t mangle -I POSTROUTING -o wwan0 -j TTL --ttl-set 65
+iptables -t mangle -I POSTROUTING -o br-lan -j TTL --ttl-set 65
+iptables -t mangle -I PREROUTING -i wwan0 -j TTL --ttl-set 65
+iptables -t mangle -I PREROUTING -i br-lan -j TTL --ttl-set 65
+iptables -t mangle -A POSTROUTING -j TTL --ttl-set 65
+iptables -t mangle -A PREROUTING -j TTL --ttl-set 65
 
 # Add custom log
 echo "[$(date +"%Y.%m.%d.%H:%M:%S")] All custom services executed successfully!" >>${custom_log}
