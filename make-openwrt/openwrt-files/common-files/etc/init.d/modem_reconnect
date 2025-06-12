@@ -1,0 +1,29 @@
+#!/bin/sh /etc/rc.common
+
+# Init script untuk modem_reconnect di OpenWrt
+
+START=99
+STOP=10
+SERVICE_USE_PID=1
+SERVICE_WRITE_PID=1
+SERVICE_DAEMONIZE=1
+
+# Path ke executable dan file config
+EXEC=/usr/sbin/modem_reconnect
+CONFIG_FILE=/etc/config/modem_reconnect
+
+start() {
+    echo "Starting modem_reconnect..."
+    service_start $EXEC --config $CONFIG_FILE
+}
+
+stop() {
+    echo "Stopping modem_reconnect..."
+    service_stop $EXEC
+}
+
+restart() {
+    echo "Restarting modem_reconnect..."
+    stop
+    start
+}

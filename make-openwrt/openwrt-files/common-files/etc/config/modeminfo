@@ -1,0 +1,8 @@
+
+config general
+	option delay '30'
+
+config modeminfo
+	option family 'INTEL'
+	option device '/dev/ttyACM0'
+
