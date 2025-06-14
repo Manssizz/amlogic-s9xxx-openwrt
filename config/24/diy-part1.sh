@@ -11,8 +11,8 @@
 
 sed -i '$a src-git modemfeed https://github.com/koshev-msk/modemfeed.git' feeds.conf.default
 sed -i '$a src-git additional https://github.com/solarflows/openwrt-packages.git' feeds.conf.default
-sed -i '$a src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main' feeds.conf.default
-sed -i '$a src-git neko https://github.com/nosignals/openwrt-neko.git;main' feeds.conf.default
+# sed -i '$a src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main' feeds.conf.default
+# sed -i '$a src-git neko https://github.com/nosignals/openwrt-neko.git;main' feeds.conf.default
 
 # sed -i '$a src-git openmptcprouter https://github.com/Ysurac/openmptcprouter-feeds.git' feeds.conf.default
 
