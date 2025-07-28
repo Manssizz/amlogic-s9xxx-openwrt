@@ -312,12 +312,12 @@ jobs:
               REPO_URL="https://github.com/immortalwrt/immortalwrt"
               REPO_BRANCH="master"
               TAGS_NAME="immortalwrt"
-          elif [[ "${{ inputs.source_branch }}" == *"23.05"* ]]; then
+          elif [[ "${{ inputs.source_branch }}" == *"23"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-23.05"
               TAGS_NAME="openwrt-23"
               TAGS_NAME="immortalwrt"
-          elif [[ "${{ inputs.source_branch }}" == *"24.10"* ]]; then
+          elif [[ "${{ inputs.source_branch }}" == *"24"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-24.10"
               TAGS_NAME="openwrt-24"
