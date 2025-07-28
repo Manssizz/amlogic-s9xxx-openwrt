@@ -19,7 +19,7 @@ echo "DISTRIB_SOURCECODE='official'" >>package/base-files/files/etc/openwrt_rele
 # sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
 #
 # Set default shell to zsh
-which zsh && sed -i -- 's:/bin/ash:'`which zsh`':g' package/base-files/files/etc/passwd
+# which zsh && sed -i -- 's:/bin/ash:'`which zsh`':g' package/base-files/files/etc/passwd
 # sed -i 's/bin/bash/bin/zsh/g' package/base-files/files/etc/passwd
 # ------------------------------- Main source ends -------------------------------
 

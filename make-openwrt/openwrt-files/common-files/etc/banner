@@ -3,9 +3,3 @@
   ▒█▀▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█▀▀▄ ▒█▀▀█ ░█▀▀█ ▒█░░▒█ ░█▀▀█ ▒█▀▀▀█ ▀█▀ ▒█░▒█ 
   ▒█░░░ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█ ▒█▄▄▀ ▒█▄▄█ ▒█▒█▒█ ▒█▄▄█ ░▀▀▀▄▄ ▒█░ ▒█▀▀█ 
   ▒█▄▄█ ▒█▄▄▄ ▒█░░▀█ ▒█▄▄▀ ▒█░▒█ ▒█░▒█ ▒█▄▀▄█ ▒█░▒█ ▒█▄▄▄█ ▄█▄ ▒█░▒█
-
- Install OpenWrt: System → Amlogic Service → Install OpenWrt
- Update  OpenWrt: System → Amlogic Service → Online  Update
- Board: king3399 | OpenWrt Kernel: 6.1.120-cendrawasih
- Builder Name: cendrawasih | Production Date: 2024-12-21
-───────────────────────────────────────────────────────────────────────

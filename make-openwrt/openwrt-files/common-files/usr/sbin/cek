@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# List of interfaces to check
+INTERFACES=("usb0" "wwan0" "eth1")
+
+while :
+do
+    for INTERFACE in "${INTERFACES[@]}"; do
+        # Get the IP address of the current interface
+        IP_ADDRESS=$(ip addr show "$INTERFACE" | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1)
+
+        if [ -z "$IP_ADDRESS" ]; then
+            echo -e "$(date) [N/A] \e[33m$INTERFACE: No IP address assigned\e[0m"
+            continue
+        fi
+
+        # Ping the target using the current interface
+        ping -I "$INTERFACE" -4 -w20 dpr.go.id > /dev/null
+        if [ $? -ne 0 ]; then
+            # Log the IP address to wwan_monitor.log before restarting the interface
+            echo -e "$(date) [$IP_ADDRESS] \e[31mPING NOT OK on $INTERFACE, RESTARTING INTERFACE\e[0m"
+            echo "$(date) [$IP_ADDRESS] PING NOT OK on $INTERFACE, RESTARTING INTERFACE" | tee -a /root/wwan_monitor.log /tmp/wwan.log >/dev/null 2>&1
+            logger -t modem -p warning -s "[$IP_ADDRESS] PING NOT OK on $INTERFACE, RESTARTING INTERFACE"
+
+            ifdown "$INTERFACE"
+            sleep 1
+            ifup "$INTERFACE"
+            sleep 300
+        else
+            echo -e "$(date) [$IP_ADDRESS] \e[32mPING OK on $INTERFACE\e[0m"
+        fi
+    done
+
+    sleep 5
+done 
