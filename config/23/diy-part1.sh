@@ -14,7 +14,7 @@ sed -i '$a src-git additional https://github.com/NueXini/NueXini_Packages.git' f
 sed -i '$a src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main' feeds.conf.default
 # sed -i '$a src-git filebrowser https://github.com/xiaozhuai/luci-app-filebrowser.git' feeds.conf.default
 sed -i '$a src-git neko https://github.com/nosignals/openwrt-neko.git;main' feeds.conf.default
-sed -i '$a src-git nikki nikki https://github.com/nikkinikki-org/OpenWrt-nikki.git' feeds.conf.default
+sed -i '$a src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki' feeds.conf.default
 sed -i '$a src-git tailscale https://github.com/asvow/luci-app-tailscale' feeds.conf.default
 
 
