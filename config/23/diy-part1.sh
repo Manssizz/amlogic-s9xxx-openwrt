@@ -10,11 +10,11 @@
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 
 sed -i '$a src-git modemfeed https://github.com/koshev-msk/modemfeed.git' feeds.conf.default
-sed -i '$a src-git additional https://github.com/NueXini/NueXini_Packages.git' feeds.conf.default
+sed -i '$a src-git additional https://github.com/NueXini/NueXini_Packages.git;main' feeds.conf.default
 sed -i '$a src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main' feeds.conf.default
 # sed -i '$a src-git filebrowser https://github.com/xiaozhuai/luci-app-filebrowser.git' feeds.conf.default
 sed -i '$a src-git neko https://github.com/nosignals/openwrt-neko.git;main' feeds.conf.default
-sed -i '$a src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki' feeds.conf.default
+sed -i '$a src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki;main' feeds.conf.default
 # sed -i '$a src-git tailscale https://github.com/asvow/luci-app-tailscale' feeds.conf.default
 
 
