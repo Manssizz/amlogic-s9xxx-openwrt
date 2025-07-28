@@ -9,7 +9,7 @@
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 
-# sed -i '$a src-git modemfeed https://github.com/koshev-msk/modemfeed.git' feeds.conf.default
+sed -i '$a src-git modemfeed https://github.com/koshev-msk/modemfeed.git' feeds.conf.default
 sed -i '$a src-git additional https://github.com/NueXini/NueXini_Packages.git' feeds.conf.default
 sed -i '$a src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main' feeds.conf.default
 # sed -i '$a src-git filebrowser https://github.com/xiaozhuai/luci-app-filebrowser.git' feeds.conf.default
