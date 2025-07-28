@@ -15,7 +15,7 @@ sed -i '$a src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main' 
 # sed -i '$a src-git filebrowser https://github.com/xiaozhuai/luci-app-filebrowser.git' feeds.conf.default
 sed -i '$a src-git neko https://github.com/nosignals/openwrt-neko.git;main' feeds.conf.default
 sed -i '$a src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki' feeds.conf.default
-sed -i '$a src-git tailscale https://github.com/asvow/luci-app-tailscale' feeds.conf.default
+# sed -i '$a src-git tailscale https://github.com/asvow/luci-app-tailscale' feeds.conf.default
 
 
 # sed -i '$a src-git openmptcprouter https://github.com/Ysurac/openmptcprouter-feeds.git' feeds.conf.default
