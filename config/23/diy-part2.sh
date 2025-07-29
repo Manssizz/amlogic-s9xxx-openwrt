@@ -33,6 +33,7 @@ rm -rf feeds/packages/lang/golang
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
 git clone https://github.com/xiaozhuai/luci-app-filebrowser package/luci-app-filebrowser
+git clone https://github.com/koshev-msk/modemfeed package/modemfeed
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
