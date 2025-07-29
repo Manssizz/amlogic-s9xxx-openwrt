@@ -31,6 +31,8 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+
+git clone https://github.com/xiaozhuai/luci-app-filebrowser package/luci-app-filebrowser
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
