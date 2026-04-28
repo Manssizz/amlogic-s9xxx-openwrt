@@ -6490,7 +6490,7 @@ CONFIG_PACKAGE_luci-app-nft-qos=y
 # CONFIG_PACKAGE_luci-app-olsrd2 is not set
 # CONFIG_PACKAGE_luci-app-omcproxy is not set
 # CONFIG_PACKAGE_luci-app-onliner is not set
-CONFIG_PACKAGE_luci-app-openclash=y
+# CONFIG_PACKAGE_luci-app-openclash is not set
 CONFIG_PACKAGE_iptables-mod-tproxy=y
 CONFIG_PACKAGE_iptables-mod-extra=y
 # CONFIG_PACKAGE_luci-app-openvpn is not set
@@ -6579,7 +6579,7 @@ CONFIG_PACKAGE_luci-app-opkg=y
 # CONFIG_PACKAGE_luci-app-smartdns is not set
 # CONFIG_PACKAGE_luci-app-sms-tool is not set
 # CONFIG_PACKAGE_luci-app-sms-tool-js is not set
-CONFIG_PACKAGE_luci-app-smstools3=y
+# CONFIG_PACKAGE_luci-app-smstools3 is not set
 # CONFIG_PACKAGE_luci-app-snmpd is not set
 # CONFIG_PACKAGE_luci-app-socat is not set
 # CONFIG_PACKAGE_luci-app-softether is not set
@@ -6717,12 +6717,12 @@ CONFIG_PACKAGE_luci-theme-argon-2102=y
 #
 # 5. Protocols
 #
-CONFIG_PACKAGE_luci-proto-3g=y
+# CONFIG_PACKAGE_luci-proto-3g is not set
 # CONFIG_PACKAGE_luci-proto-autoip is not set
 # CONFIG_PACKAGE_luci-proto-batman-adv is not set
 CONFIG_PACKAGE_luci-proto-bonding=y
 # CONFIG_PACKAGE_luci-proto-external is not set
-CONFIG_PACKAGE_luci-proto-fm350=y
+# CONFIG_PACKAGE_luci-proto-fm350 is not set
 # CONFIG_PACKAGE_luci-proto-gre is not set
 # CONFIG_PACKAGE_luci-i18n-nft-qos-es is not set
 # CONFIG_PACKAGE_luci-i18n-nft-qos-fi is not set
@@ -8838,19 +8838,19 @@ CONFIG_PACKAGE_dbus=y
 # CONFIG_PACKAGE_digitemp-usb is not set
 # CONFIG_PACKAGE_dmesg is not set
 # CONFIG_PACKAGE_dmidecode is not set
-# CONFIG_PACKAGE_docker is not set
-# CONFIG_PACKAGE_docker-compose is not set
-# CONFIG_PACKAGE_dockerd is not set
-# CONFIG_DOCKER_CHECK_CONFIG is not set
-# CONFIG_DOCKER_CGROUP_OPTIONS is not set
-# CONFIG_DOCKER_OPTIONAL_FEATURES is not set
+CONFIG_PACKAGE_docker=y
+CONFIG_PACKAGE_docker-compose=y
+CONFIG_PACKAGE_dockerd=y
+CONFIG_DOCKER_CHECK_CONFIG=y
+CONFIG_DOCKER_CGROUP_OPTIONS=y
+CONFIG_DOCKER_OPTIONAL_FEATURES=y
 
 #
 # Network
 #
-# CONFIG_DOCKER_NET_OVERLAY is not set
-# CONFIG_DOCKER_NET_MACVLAN is not set
-# CONFIG_DOCKER_NET_TFTP is not set
+CONFIG_DOCKER_NET_OVERLAY=y
+CONFIG_DOCKER_NET_MACVLAN=y
+CONFIG_DOCKER_NET_TFTP=y
 # end of Network
 
 #
@@ -9214,8 +9214,8 @@ CONFIG_PACKAGE_which=y
 #
 # Portal
 #
-# CONFIG_PACKAGE_eqos is not set
-# CONFIG_PACKAGE_luci-app-eqos is not set
+CONFIG_PACKAGE_eqos=y
+CONFIG_PACKAGE_luci-app-eqos=y
 # CONFIG_PACKAGE_wifidog-wiwiz is not set
 # CONFIG_NO_PORTAL is not set
 # end of Portal
